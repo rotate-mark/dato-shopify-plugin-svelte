@@ -1,0 +1,147 @@
+:root {
+  --font-sans: colfax, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-headline: tiempos-headline, "Times New Roman", serif;
+  --font-mono: SFMono-Regular, Source Code Pro, Menlo, monospace;
+  --font-serif: tiempos-text, Georgia, serif;
+  --page-margin: 30px;
+  --page-width-with-margin: 1200px;
+  --base-body-color: #2f333f;
+  --extra-light-body-color: #969fb6;
+  --light-body-color: #71788a;
+  --dark-bg-color: #2e343f;
+  --light-bg-color: #f4f4f4;
+  --highlight-bg-color: #f6fbfd;
+  --border-color: #eee;
+  --accent-color: rgb(75, 199, 216);
+  --azure-color: #33a3b1;
+  --clip-path: polygon(0 3vw, 100% 0, 100% calc(100% - 4vw), 0 100%);
+  --dato-gradient: linear-gradient(90deg, #ff593d, #ff7751);
+  --box-shadow: 0 0.9px 2.2px rgba(0, 0, 0, 0.02), 0 2.2px 5.3px rgba(0, 0, 0, 0.028), 0 4.1px 10px rgba(0, 0, 0, 0.035), 0 7.4px 17.9px rgba(0, 0, 0, 0.042), 0 13.8px 33.4px rgba(0, 0, 0, 0.05), 0 33px 80px rgba(0, 0, 0, 0.07)
+}
+
+* {
+  box-sizing: border-box
+}
+
+html {
+  line-height: 1.15;
+}
+
+body {
+  margin: 0;
+  color: var(--base-body-color);
+  font-family: var(--font-sans);
+  font-size: calc(16.2px + .15vw);
+  text-rendering: optimizeLegibility;
+  background: #fff
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 18px
+  }
+
+  .Container {
+    padding: 60px;
+  }
+}
+
+img,
+video {
+  max-width: 100%
+}
+
+.BaseTheme {
+  --base-body-color: #34363a;
+  --base-body-color-rgb-components: 52, 54, 58;
+  --light-body-color: #848484;
+  --light-body-color-rgb-components: 132, 132, 132;
+  --placeholder-body-color: #c6c6c6;
+  --placeholder-body-color-rgb-components: 198, 198, 198;
+  --light-bg-color: #f5f5f5;
+  --light-bg-color-rgb-components: 245, 245, 245;
+  --lighter-bg-color: #f8f8f8;
+  --lighter-bg-color-rgb-components: 248, 248, 248;
+  --disabled-bg-color: #ededed;
+  --disabled-bg-color-rgb-components: 237, 237, 237;
+  --border-color: #f0f0f0;
+  --border-color-rgb-components: 240, 240, 240;
+  --darker-border-color: #d7d7d7;
+  --darker-border-color-rgb-components: 215, 215, 215;
+  --alert-color: #ff5e49;
+  --alert-color-rgb-components: 255, 94, 73;
+  --warning-color: gold;
+  --warning-color-rgb-components: 255, 215, 0;
+  --notice-color: #46d700;
+  --notice-color-rgb-components: 70, 215, 0;
+  --warning-bg-color: #ffffe5;
+  --warning-bg-color-rgb-components: 255, 255, 229;
+  --add-color: #4cb06d;
+  --add-color-rgb-components: 76, 176, 109;
+  --remove-color: #eb576a;
+  --remove-color-rgb-components: 235, 87, 106;
+  --base-font-family: "colfax-web", "Roboto", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  --monospaced-font-family: "Roboto Mono", "Menlo", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+  --font-weight-bold: 500;
+  --spacing-s: 0.375rem;
+  --spacing-m: 0.75rem;
+  --spacing-l: 1.5rem;
+  --spacing-xl: 2.25rem;
+  --spacing-xxl: 3.75rem;
+  --spacing-xxxl: 6rem;
+  --negative-spacing-s: -0.375rem;
+  --negative-spacing-m: -0.75rem;
+  --negative-spacing-l: -1.5rem;
+  --negative-spacing-xl: -2.25rem;
+  --negative-spacing-xxl: -3.75rem;
+  --negative-spacing-xxxl: -6rem;
+  --font-size-xxs: 0.6875rem;
+  --font-size-xs: 0.75rem;
+  --font-size-s: 0.875rem;
+  --font-size-m: 0.9375rem;
+  --font-size-l: 1.0625rem;
+  --font-size-xl: 1.1875rem;
+  --font-size-xxl: 1.5625rem;
+  --font-size-xxxl: 1.875rem;
+  --material-ease: cubic-bezier(0.55, 0, 0.1, 1);
+  --inertial-ease: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.Container {
+  padding: calc(20.4px + 3.3vw);
+}
+
+.PluginContainer {
+  padding: 10px;
+}
+
+.FieldGroup__item {
+  display: block;
+  margin-bottom: var(--spacing-l);
+}
+
+.FormLabel {
+  align-items: center;
+  color: var(--light-body-color);
+  display: flex;
+  margin-bottom: var(--spacing-s);
+}
+
+.FormLabel__label {
+  flex: 1 1;
+}
+
+.FieldHint {
+  color: var(--light-body-color);
+  font-size: var(--font-size-xs);
+  line-height: 1.2;
+  margin-top: var(--spacing-s);
+}
+
+.FieldHint a {
+  color: inherit;
+}
+
+.Section + * {
+  margin-top: var(--spacing-l);
+}
