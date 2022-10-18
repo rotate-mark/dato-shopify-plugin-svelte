@@ -7,7 +7,6 @@
 
   let shopifyDomain = ctx.plugin.attributes.parameters.shopifyDomain || "";
   let storefrontAccessToken = ctx.plugin.attributes.parameters.storefrontAccessToken || "";
-  let datocmsReadToken = ctx.plugin.attributes.parameters.datocmsReadToken || "";
 
   onMount(() => {
     ctx.updateHeight();
@@ -15,7 +14,7 @@
 
   async function submitConfig() {
     console.log('setting update')
-    const values = { shopifyDomain, storefrontAccessToken, datocmsReadToken };
+    const values = { shopifyDomain, storefrontAccessToken };
     await ctx.updatePluginParameters(values);
     ctx.notice('Settings updated successfully!');
   }
@@ -44,14 +43,6 @@ You can get a Storefront access token by creating a private app. Take a look at 
   Shopify documentation
 </a> for more info
     `}
-    required
-  />
-  <TextField
-    name="datocmsReadToken"
-    label="DatoCMS Read token"
-    value={datocmsReadToken}
-    placeholder="XXXYYY"
-    hint="Read-only token for auto link"
     required
   />
   <Button
