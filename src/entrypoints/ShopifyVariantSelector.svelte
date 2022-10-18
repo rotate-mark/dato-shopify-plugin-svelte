@@ -1,6 +1,5 @@
 <script>
   import { onMount, tick } from "svelte";
-  import { SiteClient } from 'datocms-client';
   import { getShopifyProduct } from "~/utils/ShopifyClient";
   import Section from "~/components/Section.svelte";
   import Spinner from "~/components/Spinner.svelte";
@@ -15,10 +14,8 @@
   let variantOptions = [];
   let selectorValue;
 
-  const { shopifyDomain, storefrontAccessToken, datocmsReadToken } = ctx.plugin.attributes.parameters
-  const cmsClient = new SiteClient(datocmsReadToken)
+  const { shopifyDomain, storefrontAccessToken } = ctx.plugin.attributes.parameters
 
-  $: currentProductId = ctx.formValues.product;
   $: currentValue = ctx.formValues[ctx.fieldPath];
 
   function updateSelectedValue(currentValue) {
@@ -36,9 +33,7 @@
       searching = true;
       variantOptions = [];
       await tick()
-      if (!productSearch) {
-        await cmsClient.items.find(currentProductId).then(productRecord => { productSearch = productRecord.product })
-      }
+      if (!productSearch) return
       getShopifyProduct(shopifyDomain, storefrontAccessToken, productSearch).then(resp => {
         const product = resp.data.product
         const options = []
@@ -83,7 +78,7 @@
     label="Search Product Handle"
     value={productSearch}
     placeholder="product-handle"
-    hint="Press enter to search target product variants/selling plans, Empty to search linked product"
+    hint="Press enter to search target product variants/selling plans"
     onKeyup={handleSearch}
     disabled={searching}
   />
