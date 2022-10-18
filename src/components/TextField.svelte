@@ -15,7 +15,7 @@
     <span class="FormLabel__label">{label}{#if required}<span class="FormLabel__required">*</span>{/if}</span>
   </label>
   {/if}
-  <input type="text" class="TextInput" id={name} {name} placeholder={placeholder} {disabled} bind:value on:keyup={onKeyup}>
+  <input type="text" class="TextInput" id={name} placeholder={placeholder} {disabled} bind:value on:keyup={onKeyup}>
   {#if hint}<div class="FieldHint">{@html hint}</div>{/if}
 </div>
 

@@ -33,7 +33,9 @@
       searching = true;
       variantOptions = [];
       await tick()
-      if (!productSearch) return
+      if (!productSearch) {
+        searching = false;
+      }
       getShopifyProduct(shopifyDomain, storefrontAccessToken, productSearch).then(resp => {
         const product = resp.data.product
         const options = []
@@ -54,6 +56,7 @@
         searching = false
       }).catch(e => {
         console.error(e)
+        alert('Product Not Found/Failed to connect Shopify.')
         searching = false
       })
     }
@@ -76,7 +79,7 @@
   <TextField
     name="productSearch"
     label="Search Product Handle"
-    value={productSearch}
+    bind:value={productSearch}
     placeholder="product-handle"
     hint="Press enter to search target product variants/selling plans"
     onKeyup={handleSearch}
